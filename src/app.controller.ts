@@ -13,6 +13,8 @@ import { AuthService } from './modules/auth/auth.service';
 import { SamlStrategy } from './modules/auth/strategy/saml-strategy';
 import { UserUseCase } from './modules/user/useCases/userUseCase';
 import { User } from './modules/user/contracts/entities/user';
+import { SamlAuthGuard } from './modules/auth/guards/saml-auth-guard';
+import { JwtAuthGuard } from './modules/auth/guards/jwt-auth-guard';
 
 @Controller()
 export class AppController {
@@ -24,18 +26,18 @@ export class AppController {
 
     @Get()
     async homepage(@Response() res: express.Response) {
-      res.sendFile(resolve('web/index.html'));
+      res.sendFile(resolve('client/index.html'));
     }
   
     @Get('api/auth/sso/saml/login')
-    @UseGuards()
+    @UseGuards(SamlAuthGuard)
     async samlLogin() {
       //rota tratada pelo passport-saml
       return;
     }
   
     @Post('api/auth/sso/saml/ac')
-    @UseGuards()
+    @UseGuards(SamlAuthGuard)
     async samlAssertionConsumer(
       @Request() req: express.Request,
       @Response() res: express.Response,
@@ -49,7 +51,7 @@ export class AppController {
       }
     }
   
-    @UseGuards()
+    @UseGuards(JwtAuthGuard)
     @Get('api/profile')
     getProfile(@Request() req: any) {
       return req.user;
