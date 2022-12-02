@@ -8,7 +8,7 @@ import { SamlStrategy } from './strategy/saml-strategy';
     imports: [
         PassportModule,
         JwtModule.register({
-            secret: 'test',
+            secret:  process.env.JWT_KEY,
             signOptions: { expiresIn: '60s'}
 
         })
