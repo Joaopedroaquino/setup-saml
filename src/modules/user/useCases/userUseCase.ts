@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { User } from '../contracts/entities/user';
 
 @Injectable()
-export class UserService {
+export class UserUseCase {
   private _store: Map<string, User>;
 
   constructor() {

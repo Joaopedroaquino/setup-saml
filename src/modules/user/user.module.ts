@@ -1,4 +1,8 @@
 import { Module } from '@nestjs/common';
+import { UserUseCase } from './useCases/userUseCase';
 
-@Module({})
+@Module({
+    providers:[UserUseCase],
+    exports:[UserUseCase]
+})
 export class UserModule {}
