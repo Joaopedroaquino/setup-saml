@@ -5,7 +5,4 @@ export class Users {
 
     password: string;
 
-    person_id: number;
-
-    profile_id: number;
 }
