@@ -25,6 +25,7 @@ export class SamlStrategy extends PassportStrategy(Strategy) {
         issuer: profile.issuer as string,
         phone: profile['urn:oid:2.5.4.20'] as string,
       };
+      console.log(user)
       return user;
     } catch (e) {
       throw new ForbiddenException('invalid user');

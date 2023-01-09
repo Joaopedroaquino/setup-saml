@@ -48,6 +48,8 @@ export class AppController {
         const jwt = this.authService.getTokenForUser(user);
         this.userUsecase.storeUser(user);
         this, res.redirect('/?jwt=' + jwt);
+      console.log(jwt)
+
       }
     }
   
