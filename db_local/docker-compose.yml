@@ -10,5 +10,5 @@ services:
     ports:
       - "5437:5432"
     volumes:
-      - ./migration_create_db.sql:/docker-entrypoint-initdb.d/migration_create_db.sql
+      - ./migration_create_db.sql:/docker-entrypoint-initdb.d/migration.sql
 
