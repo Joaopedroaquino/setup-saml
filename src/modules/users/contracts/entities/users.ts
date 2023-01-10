@@ -5,6 +5,5 @@ export class Users {
     issuer: string;
 
 
-    password: string;
 
 }
