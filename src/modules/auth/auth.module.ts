@@ -1,11 +1,8 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { UserUseCase } from '../user/useCases/userUseCase';
 import { UserModule } from '../user/user.module';
 import { UserTypeORMRepository } from '../users/infra/typeorm/repositories/UserTypeORMRepository';
-import { RoutesModule } from '../users/users.module';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './guards/jwt-auth-guard';
 import { SamlAuthGuard } from './guards/saml-auth-guard';
@@ -16,14 +13,12 @@ import { jwtConstants } from './utils/constants';
 @Module({
     imports: [
         PassportModule,
-        ConfigModule.forRoot(),
-        forwardRef(() => RoutesModule),
-        PassportModule,
         JwtModule.register({
-          secret: process.env.JWT_SECRET,
-          signOptions: { expiresIn:'1d'},
+            secret:  jwtConstants.secret,
+            signOptions: { expiresIn: '60s'}
+
         }),
-        RoutesModule,
+        UserModule,
         
     ],
 
@@ -33,8 +28,6 @@ import { jwtConstants } from './utils/constants';
         SamlAuthGuard,
         JwtStrategy,
         JwtAuthGuard,
-        UserTypeORMRepository, 
-        UserUseCase
     ],
 
     exports: [AuthService, SamlStrategy]

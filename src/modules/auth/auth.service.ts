@@ -9,7 +9,7 @@ import { UserTypeORMRepository } from "../users/infra/typeorm/repositories/UserT
 @Injectable()
 export class AuthService {
   constructor(private jwtService: JwtService,
-    private readonly userService: UserTypeORMRepository,
+    //private readonly userService: UserTypeORMRepository,
     ) {}
 
   getTokenForUser(user: Users) {
@@ -28,11 +28,11 @@ export class AuthService {
       sub:user.id,
       emailcorporative: user.emailcorporative
     }
-    const userNotExist = await this.userService.findByEmail(user.emailcorporative)
-    if(!userNotExist?.id){
-      throw new NotFoundException("User not exist Or Email incorrect!")
+    // const userNotExist = await this.userService.findByEmail(user.emailcorporative)
+    // if(!userNotExist?.id){
+    //   throw new NotFoundException("User not exist Or Email incorrect!")
       
-    }
+    // }
     return {
       access_token: this.jwtService.sign(payload)
     }
