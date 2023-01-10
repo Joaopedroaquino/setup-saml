@@ -40,11 +40,6 @@ $ yarn start:prod
 # cd db_local
 $ docker-compose up
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 
