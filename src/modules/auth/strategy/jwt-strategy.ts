@@ -4,6 +4,7 @@ import { ForbiddenException, Injectable } from '@nestjs/common';
 import { UserUseCase } from 'src/modules/user/useCases/userUseCase';
 import { User } from 'src/modules/user/contracts/entities/user';
 import { jwtConstants } from '../utils/constants';
+import { Users } from 'src/modules/users/contracts/entities/users';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -16,7 +17,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    const user: User | undefined = this.userUseCase.retrieveUser(payload.sub);
+    const user: Users | undefined = this.userUseCase.retrieveUser(payload.sub);
 
     if (user) {
       return user;
