@@ -1,8 +1,10 @@
 export class Users {
-    id: number;
+    id?: number;
 
     emailcorporative: string;
+    issuer: string;
 
-    password: string;
+
+    password?: string;
 
 }

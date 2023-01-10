@@ -2,6 +2,7 @@ import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PassportStrategy } from '@nestjs/passport';
 import { Profile, Strategy } from '@node-saml/passport-saml/lib';
 import { User } from "@node-saml/passport-saml/lib/types";
+import { Users } from "src/modules/users/contracts/entities/users";
 
 
 
@@ -19,11 +20,10 @@ export class SamlStrategy extends PassportStrategy(Strategy) {
 
   async validate(profile: Profile) {
     try {
-      const user: User = {
-        username: profile['urn:oid:0.9.2342.19200300.100.1.1'] as string,
-        email: profile.mail as string,
+      const user: Users = {
+        emailcorporative: profile['urn:oid:0.9.2342.19200300.100.1.1'] as string,
         issuer: profile.issuer as string,
-        phone: profile['urn:oid:2.5.4.20'] as string,
+       
       };
       console.log(user)
       return user;

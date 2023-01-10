@@ -15,6 +15,7 @@ import { UserUseCase } from './modules/user/useCases/userUseCase';
 import { User } from './modules/user/contracts/entities/user';
 import { SamlAuthGuard } from './modules/auth/guards/saml-auth-guard';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth-guard';
+import { Users } from './modules/users/contracts/entities/users';
 
 @Controller()
 export class AppController {
@@ -44,7 +45,7 @@ export class AppController {
     ) {
       //rota executada em uma declaração bem sucedida do idp
       if (req.user) {
-        const user = req.user as User;
+        const user = req.user as Users;
         const jwt = this.authService.getTokenForUser(user);
         this.userUsecase.storeUser(user);
         this, res.redirect('/?jwt=' + jwt);
