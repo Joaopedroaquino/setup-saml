@@ -34,11 +34,11 @@ $ yarn start:dev
 $ yarn start:prod
 ```
 
-## Test
+## Docker
 
 ```bash
-# unit tests
-$ npm run test
+# cd db_local
+$ docker-compose up
 
 # e2e tests
 $ npm run test:e2e
