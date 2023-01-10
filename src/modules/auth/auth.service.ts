@@ -4,6 +4,7 @@ import { User } from "../user/contracts/entities/user";
 import { LogingDto } from "../users/contracts/dtos/loginDto";
 import { UserToken } from "../users/contracts/dtos/UserTokenDto";
 import { Users } from "../users/contracts/entities/users";
+import { UserTypeORMRepository } from "../users/infra/typeorm/repositories/UserTypeORMRepository";
 
 @Injectable()
 export class AuthService {

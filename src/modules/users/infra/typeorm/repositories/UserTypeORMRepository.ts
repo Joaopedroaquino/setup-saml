@@ -14,13 +14,13 @@ export class UserTypeORMRepository implements IUserRepository {
     constructor(dataSource: DataSource) {
         this.ormRepository = dataSource.getRepository(UserSchema)
     }
- public async   findByEmail(emailcorporative: string): Promise<Users> {
+    public async findByEmail(emailcorporative: string): Promise<Users> {
         return await this.ormRepository.findOneBy({ emailcorporative });
-       
-    }
-   
 
-   
+    }
+
+
+
 
 
 
