@@ -7,7 +7,9 @@ import { Users } from "../users/contracts/entities/users";
 
 @Injectable()
 export class AuthService {
-  constructor(private jwtService: JwtService) {}
+  constructor(private jwtService: JwtService,
+    private readonly userService: UserTypeORMRepository,
+    ) {}
 
   getTokenForUser(user: Users) {
     const payload = {
