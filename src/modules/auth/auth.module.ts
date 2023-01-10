@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UserModule } from '../user/user.module';
+import { UserTypeORMRepository } from '../users/infra/typeorm/repositories/UserTypeORMRepository';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './guards/jwt-auth-guard';
 import { SamlAuthGuard } from './guards/saml-auth-guard';
@@ -17,7 +18,8 @@ import { jwtConstants } from './utils/constants';
             signOptions: { expiresIn: '60s'}
 
         }),
-        UserModule
+        UserModule,
+        
     ],
 
     providers: [
@@ -25,7 +27,8 @@ import { jwtConstants } from './utils/constants';
         SamlStrategy,
         SamlAuthGuard,
         JwtStrategy,
-        JwtAuthGuard
+        JwtAuthGuard,
+        UserTypeORMRepository
     ],
 
     exports: [AuthService, SamlStrategy]
