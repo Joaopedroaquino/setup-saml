@@ -1,9 +1,9 @@
 export class Users {
     id?: number;
-
+    
     emailcorporative: string;
-    issuer: string;
 
+    issuer: string;
 
     password?: string;
 
