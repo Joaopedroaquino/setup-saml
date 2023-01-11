@@ -15,7 +15,7 @@
   <img src="./flow-assets/ssoredirect.png" width="550" title="hover text">
   
   
-## Saml Example
+## Saml Example code
 
   <img src="https://img.shields.io/badge/SAML-SAML2-red">
 
