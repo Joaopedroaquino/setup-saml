@@ -16,6 +16,11 @@
   
   
 ## Saml Example
+
+  <img src="https://img.shields.io/badge/SAML-SAML2-red">
+
+
+
   
   
   ```js
