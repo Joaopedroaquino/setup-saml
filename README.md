@@ -9,13 +9,13 @@
 
 
 
-## Flow Example
+## Flow example
 
 <p align="left">
   <img src="./flow-assets/ssoredirect.png" width="550" title="hover text">
   
   
-## Saml Example code
+## Saml example code
 
   <img src="https://img.shields.io/badge/SAML-SAML2-red">
 
