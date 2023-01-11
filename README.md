@@ -9,9 +9,12 @@
 
 
 
-## Description
+## Flow Example
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<p align="left">
+  <img src="./flow-assets/ssoredirect.png" width="550" title="hover text">
+  
+
 
 ## Installation
 
