@@ -96,6 +96,7 @@ $ npm i
 
 # watch mode
 $ yarn start:dev
+$ npm run start dev
 
 # production mode
 $ yarn start:prod
