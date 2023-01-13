@@ -106,7 +106,7 @@ $ yarn start:prod
 
 ```bash
 # cd db_local
-$ docker-compose up
+$ docker-compose up -d
 
 ```
 
