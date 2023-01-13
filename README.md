@@ -86,6 +86,7 @@
 
 ```bash
 $ yarn
+$ npm i
 ```
 
 ## Running the app
